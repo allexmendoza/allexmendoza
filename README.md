@@ -9,7 +9,8 @@
 
 - 💞️ I’m looking to collaborate on any musical applications, and anything requiring professional forms of editing relating to written language
 
-- 📫 How to reach me ...
+- 📫 I can always be reached at - allex.mendoza@gmail.com </br>
+         as well as my instagram: mcx1_allex
 
 
 <!---
