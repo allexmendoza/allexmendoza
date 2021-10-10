@@ -7,7 +7,7 @@
 
 - 🌱 I’m currently learning the languages HTML5, CSS, and Javascript
 
-- 💞️ I’m looking to collaborate on any musical applications, and anything requiring professional forms of editing relating to written language
+- 💞️ I’m looking to collaborate on any musical applications, or anything requiring professional editing relating to written language </hr>
 
 - 📫 I can always be reached at - allex.mendoza@gmail.com </br>
          as well as my instagram: mcx1_allex
