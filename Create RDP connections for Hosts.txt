@@ -1,5 +1,5 @@
 # Declare the computer Hostname and the IP
-
+# generate multiple RDP connections at once
 $entries = @{
     "Computer Hostname1" = "x.x.x.x"
     "Computer Hostname2" = "x.x.x.x"
@@ -47,3 +47,4 @@ use multimon:i:0
 
     $rdpContent | Out-File -FilePath $rdpFile -Encoding ASCII
 }
+
