@@ -1,0 +1,49 @@
+# Declare the computer Hostname and the IP
+
+$entries = @{
+    "Computer Hostname1" = "x.x.x.x"
+    "Computer Hostname2" = "x.x.x.x"
+    "Computer Hostname3" = "x.x.x.x"
+    "Computer Hostname4" = "x.x.x.x"
+    "Computer Hostname5" = "x.x.x.x"
+    "Computer Hostname6" = "x.x.x.x"
+    "Computer Hostname7" = "x.x.x.x"
+    "Computer Hostname8" = "x.x.x.x"
+    "Computer Hostname9" = "x.x.x.x"
+    "Computer Hostname10" = "x.x.x.x"
+    "Computer Hostname11" = "x.x.x.x"
+    "Computer Hostname12" = "x.x.x.x"
+    "Computer Hostname13" = "x.x.x.x"
+    "Computer Hostname14" = "x.x.x.x"
+    "Computer Hostname15" = "x.x.x.x"
+    "Computer Hostname16" = "x.x.x.x"
+    "Computer Hostname17" = "x.x.x.x"
+    "Computer Hostname18" = "x.x.x.x"
+    "Computer Hostname19" = "x.x.x.x"
+    "Computer Hostname20" = "x.x.x.x"
+
+#Place on the desktop of the current user profile logged in
+
+$rdpFolder = "$env:USERPROFILE\Desktop\RDP Connections"
+New-Item -ItemType Directory -Path $rdpFolder -Force | Out-Null
+
+foreach ($name in $entries.Keys) {
+    $ip = $entries[$name]
+    $num = $name -replace '\D+', ''  # Extract the number from DIDSMMOBX
+    $user = "donateblood\dids$num"
+    $rdpFile = Join-Path $rdpFolder "$name.rdp"
+
+    $rdpContent = @"
+
+#Add the necessary parameters
+
+full address:s:$ip
+username:s:$user
+prompt for credentials:i:1
+screen mode id:i:2
+session bpp:i:32
+use multimon:i:0
+"@
+
+    $rdpContent | Out-File -FilePath $rdpFile -Encoding ASCII
+}
