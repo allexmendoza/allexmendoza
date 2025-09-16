@@ -1,0 +1,49 @@
+Import-Module ActiveDirectory
+
+# Configurable Variables
+$DeactivatedOU = "OU=Deactivated Users,OU=CCBC,OU=Domain Users,DC=DOMAINNAME,DC=com/org"
+
+# search user by last name - display active users - number them and select them by number 
+
+# Prompt for the username
+$userSamAccount = Read-Host "Enter the SAMAccountName of the user to deactivate `nEX:user@DOMAINNAME.org `nSAMAccountName = user `n `n"
+
+# Get the AD user object
+$user = Get-ADUser -Identity $userSamAccount -Properties Description, DistinguishedName, msExchHideFromAddressLists, ProtectedFromAccidentalDeletion
+
+if ($user) {
+    # Prompt for reason
+    Write-Host "`nDeactivation Reasons:`n1. On Leave`n2. Termination`n3. No Longer Employed With DOMAINNAME"
+    $reasonChoice = Read-Host "Enter reason number"
+
+    switch ($reasonChoice) {
+        "1" { $description = "On Leave" }
+        "2" { $description = "Termination" }
+        "3" { $description = "No Longer Employed With DOMAINNAME" }
+        default {
+            Write-Host "Invalid selection. Exiting." -ForegroundColor Red
+            return
+        }
+    }
+
+#say yes for disablement 
+
+    #disable account lol 
+    Disable-ADaccount -Identity $userSamAccount
+
+    # Update Description
+    Set-ADUser -Identity $userSamAccount -Description $description
+
+    # Unprotect from accidental deletion
+    Set-ADObject -Identity $user.DistinguishedName -ProtectedFromAccidentalDeletion $false
+
+    # Hide from Global Address List
+    Set-ADUser -Identity $userSamAccount -Replace @{msExchHideFromAddressLists=$true}
+
+    # Move to Deactivated Users OU
+    Move-ADObject -Identity $user.DistinguishedName -TargetPath $DeactivatedOU
+
+    Write-Host "`nUser '$userSamAccount' has been successfully deactivated and moved to '$DeactivatedOU'." -ForegroundColor Green
+} else {
+    Write-Host "User '$userSamAccount' not found in Active Directory." -ForegroundColor Red
+}
