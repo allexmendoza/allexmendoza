@@ -1,9 +1,11 @@
 #verify attribute
+#user = user1
 
-Get-ADUser aperez -Properties proxyAddresses,targetAddress,msExchRecipientTypeDetails
+Get-ADUser user1 -Properties proxyAddresses,targetAddress,msExchRecipientTypeDetails
 
-sAMAccountName - aperez - found in attribute editor 
+sAMAccountName - user1 - found in attribute editor 
 
 
-Get-ADUser smoua -Properties proxyAddresses,targetAddress,msExchRecipientTypeDetails
-Get-ADUser tman -Properties proxyAddresses,targetAddress,msExchRecipientTypeDetails
+Get-ADUser user1 -Properties proxyAddresses,targetAddress,msExchRecipientTypeDetails
+
+Get-ADUser user1 -Properties proxyAddresses,targetAddress,msExchRecipientTypeDetails
