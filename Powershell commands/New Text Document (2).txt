@@ -1,0 +1,16 @@
+
+Export current mailbox content to PST:
+New-MailboxExportRequest -Mailbox tman -FilePath \\servername\sharename\tman.pst
+
+Convert to shared mailbox (preserves data):
+Set-Mailbox tman -Type Shared
+
+Remove on-prem mailbox:
+Disable-Mailbox tman
+
+Enable remote mailbox:
+Enable-RemoteMailbox tman -RemoteRoutingAddress "tman@donateblood.mail.onmicrosoft.com"
+
+Enable-RemoteMailbox "tman" -RemoteRoutingAddress "tman@yourdomain.mail.onmicrosoft.com"
+
+Start-ADSyncSyncCycle -PolicyType Delta

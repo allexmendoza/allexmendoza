@@ -1,0 +1,9 @@
+#verify attribute
+
+Get-ADUser aperez -Properties proxyAddresses,targetAddress,msExchRecipientTypeDetails
+
+sAMAccountName - aperez - found in attribute editor 
+
+
+Get-ADUser smoua -Properties proxyAddresses,targetAddress,msExchRecipientTypeDetails
+Get-ADUser tman -Properties proxyAddresses,targetAddress,msExchRecipientTypeDetails

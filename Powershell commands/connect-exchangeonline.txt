@@ -1,0 +1,9 @@
+Connect-ExchangeOnline
+
+Connect-ExchangeOnline -UserPrincipalName aperez@donateblood.org
+
+
+#connection error - run this command and retry (sets PS session to use TLS 1.2) 
+# M365/exchange online requires TLS 1.2 for connections 
+
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12

@@ -1,0 +1,49 @@
+Add-MailboxFolderPermission -Identity "CommunityOutreachSchedule@donateblood.org:\Calendar" -User "aperez@donateblood.org" -AccessRights Owner
+alternate command:Add-MailboxFolderPermission -Identity "CommunityOutreachSchedule:\Calendar" -User "aperez@donateblood.org" -AccessRights Owner
+
+Add-MailboxFolderPermission -Identity ayla@contoso.com:\Calendar -User julia@contoso.com -AccessRights Editor -SharingPermissionFlags Delegate
+
+Add-MailboxFolderPermission -Identity ayla@contoso.com:\Calendar -User laura@contoso.com -AccessRights Editor -SharingPermissionFlags Delegate,CanViewPrivateItems
+
+
+for setting mailbox permissions:
+Set-MailboxFolderPermission -Identity "CommunityOutreachSchedule@donateblood.org:\Calendar" -User "aperez@donateblood.org" -AccessRights Owner
+
+
+
+Author: CreateItems, DeleteOwnedItems, EditOwnedItems, FolderVisible, ReadItems
+Contributor: CreateItems, FolderVisible
+Editor: CreateItems, DeleteAllItems, DeleteOwnedItems, EditAllItems, EditOwnedItems, FolderVisible, ReadItems
+NonEditingAuthor: CreateItems, DeleteOwnedItems, FolderVisible, ReadItems
+Owner: CreateItems, CreateSubfolders, DeleteAllItems, DeleteOwnedItems, EditAllItems, EditOwnedItems, FolderContact, FolderOwner, FolderVisible, ReadItems
+PublishingAuthor: CreateItems, CreateSubfolders, DeleteOwnedItems, EditOwnedItems, FolderVisible, ReadItems
+PublishingEditor: CreateItems, CreateSubfolders, DeleteAllItems, DeleteOwnedItems, EditAllItems, EditOwnedItems, FolderVisible, ReadItems
+Reviewer: FolderVisible, ReadItems
+
+
+
+
+troublshooting steps:
+
+Check if you can see the mailbox:
+
+powershell
+Get-Mailbox -Identity "CommunityOutreachSchedule@donateblood.org"
+
+Try to view the existing permissions:
+
+powershell
+Get-MailboxFolderPermission -Identity "CommunityOutreachSchedule@donateblood.org:\Calendar"
+
+
+
+marketing 
+
+Add-MailboxFolderPermission -Identity "CommunityOutreachSchedule@donateblood.org:\Calendar" -User "mmejia@donateblood.org" -AccessRights Editor
+Add-MailboxFolderPermission -Identity "CommunityOutreachSchedule@donateblood.org:\Calendar" -User "atorres@donateblood.org" -AccessRights Editor
+Add-MailboxFolderPermission -Identity "CommunityOutreachSchedule@donateblood.org:\Calendar" -User "jromagnoli@donateblood.org" -AccessRights Editor
+Add-MailboxFolderPermission -Identity "CommunityOutreachSchedule@donateblood.org:\Calendar" -User "mwitzoe@donateblood.org" -AccessRights Editor
+
+Add-MailboxFolderPermission -Identity "CommunityOutreachSchedule@donateblood.org:\Calendar" -User "smoua@donateblood.org" -AccessRights Owner
+Set-MailboxFolderPermission -Identity "CommunityOutreachSchedule@donateblood.org:\Calendar" -User "smoua@donateblood.org" -AccessRights editor
+
