@@ -1,19 +1,7 @@
-Get-Recipient aperez | fl Name,RecipientType*
+# username = user1 
 
+Get-Recipient user1 | fl Name,RecipientType*
 
-[PS] C:\Windows\system32>Get-Recipient elcantu | fl Name,RecipientType*,EmailAddresses
+Get-Recipient user1 | fl Name,RecipientType*,EmailAddresses
 
-
-Name                 : Elise Cantu
-RecipientType        : MailUser
-RecipientTypeDetails : RemoteUserMailbox
-EmailAddresses       : {SMTP:elcantu@donateblood.org, smtp:elcantu@donateblood.mail.onmicrosoft.com,
-                       x500:/o=ExchangeLabs/ou=Exchange Administrative Group
-                       (FYDIBOHF23SPDLT)/cn=Recipients/cn=4daa17dcaaa74d40b0cb0bbca13a66df-db3f7cbe-84}
-
-
-
-[PS] C:\Windows\system32>
-
-
-Update-RemoteMailbox -Identity "elcantu" -RemoteRoutingAddress "elcantu@donateblood.mail.onmicrosoft.com"
+Update-RemoteMailbox -Identity "user1" -RemoteRoutingAddress "user1@domain.mail.onmicrosoft.com"
