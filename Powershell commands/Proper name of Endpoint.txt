@@ -1,5 +1,3 @@
-exchange-dag.donateblood.org
-
 # List all migration endpoints
 
 Get-MigrationEndpoint | Format-List Identity,EndpointType,RemoteServer
@@ -11,43 +9,3 @@ Get-MigrationEndpoint | Format-List Identity,EndpointType,RemoteServer,ExchangeV
 
 
 Get-MigrationEndpoint | Format-List *
-
-[PS] C:\Windows\system32>Get-MigrationEndpoint | Format-List *
-
-
-Identity                               : Hybrid Migration Endpoint - EWS (Default Web Site)
-EndpointType                           : ExchangeRemoteMove
-MaxConcurrentMigrations                : 20
-MaxConcurrentIncrementalSyncs          : 10
-RemoteServer                           : exchange-dag.donateblood.org
-Username                               : DONATEBLOOD\svc_office365
-Port                                   :
-Authentication                         :
-Security                               :
-RpcProxyServer                         :
-AcceptUntrustedCertificates            : False
-ExchangeServer                         :
-NspiServer                             :
-UseAutoDiscover                        :
-UseGoogleMarketplaceApp                :
-PrimaryDomain                          :
-MailboxPermission                      : Admin
-Guid                                   : 384cacdf-186f-437c-acfd-fbd056518bd2
-IsRemote                               : True
-SourceMailboxLegacyDN                  :
-PublicFolderDatabaseServerLegacyDN     :
-RemoteTenant                           :
-ApplicationId                          :
-AppSecretKeyVaultUrl                   :
-IsPublicFolderMailboxesMigrationSource : False
-DiagnosticInfo                         :
-IsValid                                : True
-ObjectState                            : Unchanged
-
-
-
-[PS] C:\Windows\system32>
-
-
-
-
