@@ -1,14 +1,15 @@
 #this is after the user was created in AD and the user doesnt show up with a mailbox in on-prem exchange 
 #check if the user shows up from AD 
 
-#Example below will be using Elise Cantu as an example - username = elcantu 
-1. Get-ADUser -Identity "elcantu" | fl Name,UserPrincipalName,DistinguishedName
+#Example below will be using "user1" as an example - username = user1
+1. Get-ADUser -Identity "user1" | fl Name,UserPrincipalName,DistinguishedName
 
 #First, make them a mail user:
-2. Enable-MailUser -Identity "elcantu" -ExternalEmailAddress "elcantu@donateblood.mail.onmicrosoft.com"
+2. Enable-MailUser -Identity "user1" -ExternalEmailAddress "user1@domain.mail.onmicrosoft.com"
 
 #Wait about 30 seconds, then convert to remote mailbox:
-Enable-RemoteMailbox -Identity "elcantu" -RemoteRoutingAddress "elcantu@donateblood.mail.onmicrosoft.com"
+Enable-RemoteMailbox -Identity "elcantu" -RemoteRoutingAddress "user1@domain.mail.onmicrosoft.com"
 
 #If you get any errors, try this alternative:
+
 Get-ADUser elcantu | Set-ADUser -Replace @{msExchRecipientTypeDetails="2147483648"; msExchRecipientDisplayType="-2147483642"; msExchRemoteRecipientType="4"}
