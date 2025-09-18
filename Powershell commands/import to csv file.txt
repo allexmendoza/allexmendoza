@@ -1,3 +1,4 @@
-Get-Mailbox aperez | Select-Object @{Name='EmailAddress';Expression={$_.PrimarySmtpAddress}} | Export-Csv -Path "$env:USERPROFILE\Desktop\AperezMigrationBatch.csv" -NoTypeInformation
+Get-Mailbox aperez | Select-Object @{Name='EmailAddress';Expression={$_.PrimarySmtpAddress}} | Export-Csv -Path "$env:USERPROFILE\Desktop\MigrationBatch.csv" -NoTypeInformation
+
 
 import to csv file 
