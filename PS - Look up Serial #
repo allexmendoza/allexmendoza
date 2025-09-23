@@ -1,1 +1,4 @@
 Get-WmiObject -Class Win32_BIOS | Select-Object SerialNumber
+
+#Or just run 
+Get-WmiObject -Class Win32_BIOS
