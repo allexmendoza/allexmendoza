@@ -1,0 +1,7 @@
+# from powerhsell learn within a month 
+# ignores anything w/ Powershell
+
+get-process | where-object { $_.name -notlike 'pwsh*' } | sort-object vm -descending | select -first 10 name, vm, ws, pm
+
+# change from decsending to ascending 
+#remove last select to show output w/ ID 
